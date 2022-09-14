@@ -17,8 +17,7 @@ Django. Some awesome features are:
 
 ## Dependencies
 
--   [django \>= 2.2](https://djangoproject.com/)
--   [jsonfield](https://github.com/rpkilby/jsonfield)
+-   [django \>= 3.1](https://djangoproject.com/)
 -   [bleach](https://bleach.readthedocs.io/)
 
 With this optional dependency, HTML emails are nicely rendered
@@ -550,7 +549,7 @@ POST_OFFICE = {
 }
 ```
 
-`CONTEXT_FIELD_CLASS` defaults to `jsonfield.JSONField`.
+`CONTEXT_FIELD_CLASS` defaults to `django.db.models.JSONField`.
 
 ### Logging
 

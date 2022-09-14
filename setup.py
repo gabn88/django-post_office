@@ -49,8 +49,7 @@ setup(
     package_data={'': ['README.rst']},
     install_requires=[
         'bleach[css]',
-        'django>=2.2',
-        'jsonfield>=3.0',
+        'django>=3.1',
         'pytz',
     ],
     classifiers=[

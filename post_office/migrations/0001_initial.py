@@ -1,5 +1,4 @@
 from django.db import models, migrations
-import jsonfield.fields
 import post_office.fields
 import post_office.validators
 import post_office.models
@@ -38,8 +37,8 @@ class Migration(migrations.Migration):
                 ('created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('last_updated', models.DateTimeField(auto_now=True, db_index=True)),
                 ('scheduled_time', models.DateTimeField(db_index=True, null=True, blank=True)),
-                ('headers', jsonfield.fields.JSONField(null=True, blank=True)),
-                ('context', jsonfield.fields.JSONField(null=True, blank=True)),
+                ('headers', models.TextField(null=True, blank=True)),
+                ('context', models.TextField(null=True, blank=True)),
             ],
             options={
             },
