@@ -117,7 +117,7 @@ class Email(models.Model):
             plaintext_message = self.message
             multipart_template = None
             html_message = self.html_message
-            html_message = quopri.decodestring(html_message)
+            html_message = quopri.decodestring(html_message).decode('latin1')
 
 
         connection = connections[self.backend_alias or 'default']
