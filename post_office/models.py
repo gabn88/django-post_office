@@ -117,8 +117,10 @@ class Email(models.Model):
             plaintext_message = self.message
             multipart_template = None
             html_message = self.html_message
-            html_message = quopri.decodestring(html_message).decode('latin1')
-
+            try:
+                html_message = quopri.decodestring(html_message).decode('latin1')
+            except ValueError:
+                pass
 
         connection = connections[self.backend_alias or 'default']
         if isinstance(self.headers, dict) or self.expires_at or self.message_id:
