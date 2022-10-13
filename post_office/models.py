@@ -3,7 +3,7 @@ import os
 from collections import namedtuple
 from uuid import uuid4
 from email.mime.nonmultipart import MIMENonMultipart
-
+import quopri
 from django.core.exceptions import ValidationError
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.db import models
@@ -117,6 +117,8 @@ class Email(models.Model):
             plaintext_message = self.message
             multipart_template = None
             html_message = self.html_message
+            html_message = quopri.decodestring(html_message)
+
 
         connection = connections[self.backend_alias or 'default']
         if isinstance(self.headers, dict) or self.expires_at or self.message_id:
