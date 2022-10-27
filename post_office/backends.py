@@ -33,9 +33,8 @@ class EmailBackend(BaseEmailBackend):
                 reply_to_header = ", ".join(str(v) for v in email_message.reply_to)
                 headers.setdefault("Reply-To", reply_to_header)
             message = email_message.body
-
+            html_body = ''
             if hasattr(email_message, 'alternatives') and len(email_message.alternatives) > 0:
-                html_body  = email_message.alternatives[0]
                 for alternative in email_message.alternatives:
                     if alternative[1] == 'text/html':
                         html_body  = alternative[0]
